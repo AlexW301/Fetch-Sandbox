@@ -9,16 +9,24 @@
 <body>
     <button class="getText">Get Text</button>
 
+    <div class="output"></div>
+
     <script>
         document.querySelector('.getText').addEventListener('click', getText);
 
         function getText() {
+            // fetch('sample.txt')
+            // .then(function(res) {
+            //     return res.text();
+            // })
+            // .then(function(data) {
+            //     console.log(data)
+            // })
+            //Same thing, just looks better and less code
             fetch('sample.txt')
-            .then(function(res) {
-                return res.text();
-            })
-            .then(function(data) {
-                console.log(data)
+            .then((res) => res.text())
+            .then((data) => {
+                document.querySelector('.output').innerHTML = data;
             })
         }
     </script>
